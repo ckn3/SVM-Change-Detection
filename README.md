@@ -1,6 +1,6 @@
 # A two-stage method for spectral–spatial classification of hyperspectral images
 
-- This code is an implementation of the two-stage method, where the first stage is a $\nu-SVM$ and the second stage is a $L1, L2$ 
+This code is an implementation of the two-stage method, where the first stage is a $'\nu-SVM'$ and the second stage is a $'L1, L2'$ 
 - Link to the paper: https://link.springer.com/article/10.1007/s10851-019-00925-9.
 
 - Contact: kangnicui2@gmail.com
