@@ -6,3 +6,4 @@
 - Contact: kangnicui2@gmail.com
 
 If you found the code is useful, please cite:
+- Chan, Raymond H., et al. "A two-stage method for spectral–spatial classification of hyperspectral images." Journal of Mathematical Imaging and Vision 62.6 (2020): 790-807.
