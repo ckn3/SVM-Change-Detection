@@ -1,6 +1,9 @@
 # A two-stage method for spectral–spatial classification of hyperspectral images
 
-This code is an implementation of the two-stage method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that denoise the prediction results. The code can be used as a semisupervised per-pixel segmentation with smoothness, which is capable for multispectral/hyperspectral datasets. 
+This code is an implementation of the two-stage method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that denoise the prediction results.
+
+The code can be used as a semisupervised per-pixel segmentation with smoothness, which is capable for multispectral/hyperspectral datasets. 
+
 If you are using remote sensing datasets, for example, derived from Google Earth Engine, that may have 3 to 14 spectral bands available, the code gives an option to uplifting the data using the Lab color space information. This is proved to be useful in Reference 1 & 3.
 
 The code of the first stage can be used as a classifier that fits the data, by training the \nu-SVM with a small set of available labels.
