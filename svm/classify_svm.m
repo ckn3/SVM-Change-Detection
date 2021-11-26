@@ -63,7 +63,10 @@ function [outdata, out_param, bestng] = classify_svm(varargin)
 
 % Parse inputs
 if nargin == 2
-    data_set = varargin{1};
+    data = varargin{1};
+    data_set = data.HSI;
+    nn=data.n;
+    gg = data.g;
     train = varargin{2};
     in_param = struct;
 %    in_param.kernel_type = 2;   % default RBF
@@ -144,10 +147,10 @@ tic
 
 % if ~(in_param.other.turning)
 bestcv = 0;
-for n = 0.005:0.005:0.1
-    for g = 0.005:0.005:0.1
-% for n = 0.1:0.1:0.5
-%     for g = 0.1:0.1:0.5        
+% for n = 0.005:0.005:0.1
+%     for g = 0.005:0.005:0.1
+for n = nn
+    for g = gg        
         %             cmd = ['-v 5 -c ', num2str(2^log2c), ' -g ', num2str(2^log2g)];
         cmd = ['-q -s 1 -t 2 -n' ' ' num2str(n) ' ' '-g' ' ' num2str(g) ' ' '-v 5']; % '-b 1'
         %             cmd = ['-q -s 0 -t 2 -c' ' ' num2str(in_param.other.CCC) ' ' '-g' ' ' num2str(in_param.other.gamma)]; % '-b 1'
