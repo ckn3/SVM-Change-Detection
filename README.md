@@ -10,8 +10,8 @@ Notes:
 - Contact: kangnicui2@gmail.com
 
 ## References
-If you found the code is useful, please cite:
-- **Hyperspectral Change Detection Paper.**
+If you found the code useful, please cite:
+- **Hyperspectral Change Detection Paper, In Preparation.**
 - **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. Journal of Mathematical Imaging and Vision, 62(6), 790-807. Link: https://link.springer.com/article/10.1007/s10851-019-00925-9.
 
 If you applied the uplifting for multispectral images (e.g., from GEE), please cite:
