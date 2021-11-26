@@ -83,16 +83,24 @@ HSI = reshape(X,s1(1),s1(2),[]);
 
 Y2d = reshape(Y,s1(1),s1(2))+1;
 clear choice prompt
+
 %% Find the best parameters of SVM
 for pts_per_class = [100,200,300,500]
     K_Known = length(unique(Y));
+    n=0.1:0.1:1;
+    g=0.1:0.1:1;
     find_best_params
+    n = (mode(best_param(:,1))-0.1):0.02:(mode(best_param(:,1))+0.1);
+    g = (mode(best_param(:,2))-0.1):0.02:(mode(best_param(:,2))+0.1);
+    n = n(n>0);
+    g = g(g>0);
+    find_best_params
+    
+    
     par = 0:0.2:1;
-    par2 = [0:0.5:1,2];
+    par2 = [0,0.5,1,2];
     grid_search_2stage
-
     disp(best_a1a2)
-    % A finer grid,and considers the case that no denoising is applied.
     par = (best_a1-0.1):0.05:(best_a1+0.1);
     par = par(par>=0);
     par2 = best_a2;

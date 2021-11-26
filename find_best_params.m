@@ -59,13 +59,10 @@ train_img=zeros(no_rows,no_lines);
 train_img(train_SL(1,:))=train_SL(2,:);
 
 %% Classification based on two feature image
-% in_param.other.turning = false;
-% 
-% in_param.other.CCC = best_param(trial_idx,1); in_param.other.gamma = best_param(trial_idx,2);
-% %----------------------------------nu-svm parameter------------------------
-% [class_label, out_param] = classify_svm(img,train_img,in_param);
-
-[class_label, out_param, bestng] = classify_svm(HSI,train_img);
+Data.HSI = HSI;
+Data.n = n;
+Data.g = g;
+[class_label, out_param, bestng] = classify_svm(Data,train_img);
 best_param = [best_param; bestng];
 %% Calculate the error based on predict label and truth label
 [OA,kappa,AA,CA] = calcError(test_SL(2,:)-1,class_label(test_SL(1,:))'-1,[1:K_Known]);

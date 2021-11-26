@@ -75,14 +75,6 @@ for a1 = par
             
             in_param.other.CCC = best_param(trial_idx,1); in_param.other.gamma = best_param(trial_idx,2);
             [class_label, out_param] = classify_svm_prob(HSI,train_img,in_param); %% output is probability
-            [OA1,kappa1,AA1,CA1] = calcError(test_SL(2,:)-1,class_label(test_SL(1,:))'-1,[1:K_Known]);
-            if OA1==1
-                pred = class_label;
-                best_a1a2 = [0 0];
-                return
-            end
-%             
-%             predict_label_prob = reshape(out_param.prob_estimates, no_rows, no_lines, K_Known);
             
             denoise_predict_tensor = zeros(no_rows, no_lines, no_bands);
             predict_label_prob = reshape(out_param.prob_estimates, no_rows, no_lines, K_Known);
