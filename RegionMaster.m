@@ -91,8 +91,10 @@ for pts_per_class = [100,200,300,500]
     g=0.1:0.1:1;
     find_best_params
     n = (mode(best_param(:,1))-0.1):0.02:(mode(best_param(:,1))+0.1);
-    g = (mode(best_param(:,2))-0.1):0.02:(mode(best_param(:,2))+0.1);
     n = n(n>0);
+    find_best_params
+    n = mode(best_param(:,1));
+    g = (mode(best_param(:,2))-0.1):0.02:(mode(best_param(:,2))+0.1);
     g = g(g>0);
     find_best_params
     
