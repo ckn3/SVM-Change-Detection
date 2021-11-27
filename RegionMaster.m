@@ -80,7 +80,7 @@ end
 
 
 HSI = reshape(X,s1(1),s1(2),[]);
-
+trial_num = 10;
 Y2d = reshape(Y,s1(1),s1(2))+1;
 clear choice prompt
 
@@ -89,36 +89,27 @@ for pts_per_class = [100,200,300,500]
     K_Known = length(unique(Y));
     n=0.1:0.1:1;
     g=0.1:0.1:1;
-    find_best_params
+    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
     n = (mode(best_param(:,1))-0.1):0.02:(mode(best_param(:,1))+0.1);
     n = n(n>0);
-    find_best_params
+    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
     n = mode(best_param(:,1));
     g = (mode(best_param(:,2))-0.1):0.02:(mode(best_param(:,2))+0.1);
     g = g(g>0);
-    find_best_params
+    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
     
     
     par = 0:0.2:1;
     par2 = [0,0.5,1,2];
-    grid_search_2stage
-    disp(best_a1a2)
-    par = (best_a1-0.1):0.05:(best_a1+0.1);
-    par = par(par>=0);
-    par2 = best_a2;
-    grid_search_2stage
-    % Produce the best classification results
-    par = best_a1a2(1);
-    par2 = best_a1a2(2);
-    grid_search_2stage
+    Prediction = gridsearch_denoised(HSI,Y2d,K_Known,trial_num,pts_per_class,best_param,par,par2);
+    besta1a2 = Prediction.besta1a2;
+    disp(besta1a2)
     
-    clc
-    [~,idx]=max(overall_OA+overall_AA+overall_kappa);
-    pred = prediction_map(:,:,idx);
-    disp(['OA: ',num2str(overall_OA(idx))])
-    disp(['AA: ',num2str(overall_AA(idx))])
-    disp(['kappa: ',num2str(overall_kappa(idx))])
-    disp(['class acc: ',num2str(reshape(overall_CA(:,idx),1,K_Known))])
+    par = (mode(besta1a2(:,1))-0.1):0.05:(mode(besta1a2(:,1))+0.1);
+    par = par(par>=0);
+    par2 = unique([mode(besta1a2(:,2)),besta1a2(Prediction.idx,2)]);
+    Prediction = gridsearch_denoised(HSI,Y2d,K_Known,trial_num,pts_per_class,best_param,par,par2);
+    % Produce the best classification results
 
-    save(strcat(num2str(s1(3)),'ch_',num2str(pts_per_class),'_best'), 'pred', 'best_a1a2','best_param', 'idx', 'overall_AA','overall_CA','overall_kappa','overall_OA', 'prediction_map','pts_per_class')
+    save(strcat(num2str(s1(3)),'ch_',num2str(pts_per_class),'_best'), 'Prediction')
 end

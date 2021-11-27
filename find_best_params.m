@@ -1,10 +1,8 @@
-t1=clock;
+function best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g)
 rng('default')
 rng(1) %random seed
-trial_num = 10; %number of trials, in the paper we used 10
 overall_OA = []; overall_AA = []; overall_kappa = []; overall_CA = [];
 overall_cmd = []; 
-best_param = [];
 
 [no_rows,no_lines, no_bands] = size(HSI);
 img1=reshape(HSI,[no_rows*no_lines,no_bands]);
@@ -63,7 +61,7 @@ Data.HSI = HSI;
 Data.n = n;
 Data.g = g;
 [class_label, out_param, bestng] = classify_svm(Data,train_img);
-best_param = [best_param; bestng];
+best_param(trial_idx,:) = bestng;
 %% Calculate the error based on predict label and truth label
 [OA,kappa,AA,CA] = calcError(test_SL(2,:)-1,class_label(test_SL(1,:))'-1,[1:K_Known]);
 overall_OA = [overall_OA;OA]; overall_AA= [overall_AA;AA]; overall_kappa = [overall_kappa;kappa]; overall_CA = [overall_CA, CA];
@@ -71,8 +69,6 @@ overall_OA = [overall_OA;OA]; overall_AA= [overall_AA;AA]; overall_kappa = [over
 prediction_map(:,:,trial_idx) = reshape(class_label,no_rows,no_lines);
 
 end
-fprintf('OA: %1.4f, AA: %1.4f, kappa: %1.4f', mean(overall_OA), mean(overall_AA), mean(overall_kappa))
-'Average accuracy of each class:'
-mean(overall_CA,2)
-t2=clock;
-t=etime(t2,t1);
+
+
+end
