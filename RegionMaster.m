@@ -109,6 +109,7 @@ for pts_per_class = [100,200,300,500]
     par = par(par>=0);
     par2 = unique([mode(besta1a2(:,2)),besta1a2(Prediction.idx,2)]);
     Prediction = gridsearch_denoised(HSI,Y2d,K_Known,trial_num,pts_per_class,best_param,par,par2);
+    Prediction.best_param = best_param;
     % Produce the best classification results
 
     save(strcat(num2str(s1(3)),'ch_',num2str(pts_per_class),'_best'), 'Prediction')
