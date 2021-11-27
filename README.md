@@ -17,7 +17,7 @@ Notes:
 ## References
 If you found the code useful, please cite:
 
-- [1] **Hyperspectral Change Detection Paper, In Preparation.** 
+- [1] **Change Recognition of Mining Ponds in Multispectral Imagery by Comparing Supervised and Unsupervised Learning, In Preparation.** 
 
 - [2] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. Journal of Mathematical Imaging and Vision, 62(6), 790-807. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
 
