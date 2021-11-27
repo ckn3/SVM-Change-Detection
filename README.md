@@ -11,7 +11,7 @@ The code of the first stage can be used as a classifier that fits the data alone
 Notes:
 - The code is written in MATLAB, and you need a 64-bit Windows computer to run the code.
 - To run a demo, please run the RegionMaster.m, and then select Region as 1, Data as RGB data, and Task as binary classification.
-- To apply the code on your dataset, You should have a few inputs: HSI (dataset, m * n * p), Y2d (label, m * n), K_Known (No. of classes), trial_num (No. of trials).
+- To apply the code on your dataset, you should define a few inputs: HSI (dataset, m * n * p), Y2d (label, m * n), K_Known (No. of classes), trial_num (No. of trials).
 - Contact: kangnicui2@gmail.com
 
 ## References
