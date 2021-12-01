@@ -1,6 +1,6 @@
 # A two-stage method for spectral–spatial classification of hyperspectral/multispectral images -- Semi-Supervised Approach
 
-This code is an implementation of the two-stage method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that denoise the prediction results [2]. 
+## This code is an implementation of the two-stage method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that denoise the prediction results [2]. 
 
 The code can be used as a semisupervised per-pixel segmentation with smoothness, which is capable for multispectral and hyperspectral datasets, with applications to change recognition and species classification, etc. 
 
