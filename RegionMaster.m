@@ -90,14 +90,13 @@ for pts_per_class = [100,200,300,500]
     n=0.1:0.1:1;
     g=0.1:0.1:1;
     best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
-    n = (mode(best_param(:,1))-0.1):0.02:(mode(best_param(:,1))+0.1);
+    n = (mode(best_param(:,1))-0.2):0.02:(mode(best_param(:,1))+0.2);
     n = n(n>0);
-    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
-    n = mode(best_param(:,1));
-    g = (mode(best_param(:,2))-0.1):0.02:(mode(best_param(:,2))+0.1);
+    n = n(n<=1);
+    g = (mode(best_param(:,2))-0.2):0.02:(mode(best_param(:,2))+0.2);
     g = g(g>0);
-    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
-    
+    g = g(g<=1);
+    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);    
     
     par = 0:0.2:1;
     par2 = [0,0.5,1,2];
