@@ -10,7 +10,7 @@ for a1=par
         class_label_denoised_temp = reshape(class_label_denoised_temp,[],1);
         [OA_temp,kappa_temp,AA_temp,~] = calcError(test_SL(2,:)-1,class_label_denoised_temp(test_SL(1,:))'-1,1:K_Known);
         
-        if (OA_temp+kappa_temp+AA_temp)>(OA+AA+kappa)
+        if (OA_temp+kappa_temp)>(OA+kappa)
             OA = OA_temp;AA=AA_temp;kappa=kappa_temp;
             besta1=a1;besta2=a2;
             class_label_denoised = class_label_denoised_temp;
