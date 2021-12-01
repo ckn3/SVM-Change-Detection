@@ -9,7 +9,7 @@ If you are using remote sensing datasets, for example, derived from Google Earth
 The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels.
 
 Notes:
-- The code is written in MATLAB, and you need a 64-bit Windows computer to run the code.
+- The code is written in MATLAB, and you need a 64-bit Windows computer to run the code ([LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
 - To run a demo, please run the RegionMaster.m, and then select Region as 1, Data as RGB data, and Task as binary classification.
 - To apply the code on your dataset, you should define a few inputs: HSI (dataset, m * n * p), Y2d (label, m * n), K_Known (No. of classes), trial_num (No. of trials).
 - Contact: kangnicui2@gmail.com
