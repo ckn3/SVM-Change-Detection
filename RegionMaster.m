@@ -78,7 +78,6 @@ if choice == 1
     X = [X,Xu];
 end
 
-
 HSI = reshape(X,s1(1),s1(2),[]);
 trial_num = 10;
 Y2d = reshape(Y,s1(1),s1(2))+1;
@@ -87,15 +86,20 @@ clear choice prompt
 %% Find the best parameters of SVM
 for pts_per_class = [100,200,300,500]
     K_Known = length(unique(Y));
-    n=0.1:0.1:1;
-    g=0.1:0.1:1;
-    best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
-    n = (mode(best_param(:,1))-0.2):0.02:(mode(best_param(:,1))+0.2);
+    n=0.02:0.02:0.2;
+    dn = (s1(3)+2:-0.5:s1(3)-2);
+    dn = dn(dn>1);
+    g=1./dn;
+    [best_param,idx_all,idx_kappa] = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);
+    n = unique([(best_param(idx_all,1)-0.015):0.005:(best_param(idx_all,1)+0.015),(best_param(idx_kappa,1)-0.015):0.005:(best_param(idx_kappa,1)+0.015)]);
     n = n(n>0);
-    n = n(n<=1);
-    g = (mode(best_param(:,2))-0.2):0.02:(mode(best_param(:,2))+0.2);
-    g = g(g>0);
-    g = g(g<=1);
+    idx1 = find(g == best_param(idx_kappa,2));
+    dn1 = (idx1+0.4:-0.1:idx1-0.4);
+    dn1 = dn1(dn1>1);
+    idx2 = find(g == best_param(idx_all,2));
+    dn2 = (idx2+0.4:-0.1:idx2-0.4);
+    dn2 = dn2(dn2>1);
+    g = unique([1./dn1,1./dn2]);
     best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g);    
     
     par = 0:0.2:1;

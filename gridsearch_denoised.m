@@ -88,16 +88,16 @@ for trial_idx = 1: trial_num
     besta1a2(trial_idx,:) = best_denoise_param;
     prediction_map(:,:,trial_idx) = reshape(class_label_denoised,no_rows,no_lines);
 end
-[~,idx] = max(overall_OA+overall_AA+overall_kappa);
+[~,idx] = max(overall_kappa);
 fprintf('OA: %1.4f, AA: %1.4f, kappa: %1.4f', overall_OA(idx), overall_AA(idx), overall_kappa(idx))
 disp('Best accuracy of each class:')
 overall_CA(:,idx)
 Prediction.map = prediction_map;
 Prediction.pred = prediction_map(:,:,idx);
-Prediction.OA = overall_OA(idx);
-Prediction.AA = overall_AA(idx);
-Prediction.kappa = overall_kappa(idx);
-Prediction.CA = overall_CA(:,idx);
+Prediction.OA = overall_OA;
+Prediction.AA = overall_AA;
+Prediction.kappa = overall_kappa;
+Prediction.CA = overall_CA;
 Prediction.idx = idx;
 Prediction.besta1a2=besta1a2;
 end

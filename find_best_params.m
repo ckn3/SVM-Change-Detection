@@ -1,4 +1,4 @@
-function best_param = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g)
+function [best_param,idx_all, idx_kappa] = find_best_params(HSI,Y2d,K_Known,trial_num,pts_per_class,n,g)
 rng('default')
 rng(1) %random seed
 overall_OA = []; overall_AA = []; overall_kappa = []; overall_CA = [];
@@ -69,6 +69,7 @@ overall_OA = [overall_OA;OA]; overall_AA= [overall_AA;AA]; overall_kappa = [over
 prediction_map(:,:,trial_idx) = reshape(class_label,no_rows,no_lines);
 
 end
-
+[~,idx_all] = max(overall_kappa+overall_AA);
+[~,idx_kappa] = max(overall_kappa);
 
 end
