@@ -4,7 +4,7 @@ This code is an implementation of the two-stage method, where the first stage is
 
 If you are using remote sensing datasets, for example, derived from Google Earth Engine, that may have 3 to 14 spectral bands available, the code gives an option to uplifting the data using the Lab color space information. This is verified to be useful in [1,3].
 
-The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels.
+The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels, see [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
 
 Notes:
 - The code is written in MATLAB, and you need a 64-bit Windows computer to run the code ([LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
