@@ -10,6 +10,7 @@ Notes:
 - The code is written in MATLAB, and you need a 64-bit Windows computer to run the code ([LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
 - To run a demo, please run the RegionMaster.m, and then select Region as 1, Data as RGB data, and Task as binary classification.
 - To apply the code on your dataset, you should define a few inputs: HSI (dataset, m * n * p), Y2d (label, m * n), K_Known (No. of classes), trial_num (No. of trials).
+- If you want to pre-train a model and then apply it to testing datasets, please revise the code in 'test' folder, where the TrainModel.m can be revised to pre-train the \nu-SVM in the first stage. Then choose proper denoising parameters (based on your experience during training): 'par', 'par2' in the second stage, and revise TestMaster to run the code on your testing datasets.
 - Contact: kangnicui2@gmail.com
 
 ## References
