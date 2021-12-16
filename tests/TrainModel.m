@@ -29,16 +29,6 @@ end
 dataName = strcat(datasets{choice1},Preprocess{choice2},Task{choice3});
 load(strcat(dataName,'.mat'))
 
-if nbands == 3 && uplift == 0 && choice3 == 1
-    par = [0,0.05,0.1];par2 = 2;
-elseif nbands == 3 && uplift == 1 && choice3 == 1
-    par = [0,0.05,0.1];par2 = 2;
-elseif nbands == 3 && uplift == 0 && choice3 == 2
-    par = [0,0.05,0.1,0.15,0.2,0.3];par2 = 2;
-elseif nbands == 3 && uplift == 1 && choice3 == 2
-    par = [0,0.05,0.1,0.15,0.2,0.3];par2 = 2;
-end
-
 clear choice1 choice2 choice3 datasets Preprocess prompt1 prompt2 prompt3 Task
 %% Pre-train the nu-SVM using part of labeled data
 Xsub = [];
@@ -68,5 +58,5 @@ for pts_per_class = [500,1000,2000,5000,10000]
     n = n(n>0);
     g = unique([(best_param(idx_all,2)-0.004):0.001:(best_param(idx_all,2)+0.004),(best_param(idx_kappa,2)-0.004):0.001:(best_param(idx_kappa,2)+0.004)]);
     [best_param,~,~,model] = find_best_params_global(HSI,Y2d,K_Known,10,pts_per_class,n,g);
-    save(strcat(dataName,num2str(pts_per_class),'param'), 'best_param','pts_per_class','par','par2','model')
+    save(strcat(dataName,num2str(pts_per_class),'param'), 'best_param','pts_per_class','model')
 end
