@@ -71,8 +71,17 @@ clear X Xu Y HSI
 %%
 
 for pts_per_class = [20,50,100,200]
-    if DataSelected == 1
+    if DataSelected == 1 && choice == 1
         load(strcat(RegionSelected,'/RGB/recon2_',num2str(pts_per_class),'.mat'),'HSI')
+        HSI_rc=reshape(HSI,s(1)*s(2),[]);
+        HSI_l = reshape([rgb2lab(HSI(:,:,1:3)./255), rgb2lab(HSI(:,:,4:6)./255)],s(1)*s(2),[]);
+        HSI = reshape([HSI_rc, HSI_l],s(1),s(2),[]);
+    elseif DataSelected == 2 && choice == 1
+        load(strcat(RegionSelected,'/6channel/recon2_',num2str(pts_per_class),'.mat'),'HSI')
+        HSI_rc=reshape(HSI,s(1)*s(2),[]);
+        load(strcat(RegionSelected,'/RGB/recon2_',num2str(pts_per_class),'.mat'),'HSI')
+        HSI_l = reshape([rgb2lab(HSI(:,:,1:3)./255), rgb2lab(HSI(:,:,4:6)./255)],s(1)*s(2),[]);
+        HSI = reshape([HSI_rc, HSI_l],s(1),s(2),[]);
     else
         HSI = reshape(SA_Recon(HSI_ori,Y2d,pts_per_class,trial_num),s(1),s(2),[]);
     end
