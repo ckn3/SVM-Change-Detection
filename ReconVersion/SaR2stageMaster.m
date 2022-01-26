@@ -14,7 +14,7 @@ fig2 = strcat(RegionSelected,'_original_2021-07-23.tif');
 s = size(imread(fig1));
 X_2019 = reshape(double(imread(fig1)),s(1)*s(2),[]);
 X_2021 = reshape(double(imread(fig2)),s(1)*s(2),[]);
-Xu = [rgb2lab(X_2019./255), rgb2lab(X_2021./255)];
+
 
 prompt2 = 'Which dataset? \n 1) RGB Images \n 2) 6-Channel Images \n 3) 10-Channel Images \n ';
 DataSelected = input(prompt2);
@@ -61,10 +61,6 @@ end
 prompt = 'Use Lab colorspace to uplifting the data? \n 1) Yes \n 2) No \n';
 choice = input(prompt);
 
-if choice == 1
-    X = [X,Xu];
-end
-
 HSI = reshape(X,s(1),s(2),[]);
 trial_num = 10;
 Y2d = reshape(Y,s(1),s(2))+1;
@@ -75,10 +71,20 @@ clear X Xu Y HSI
 %%
 
 for pts_per_class = [20,50,100,200]
-    HSI = reshape(SA_Recon(HSI_ori,Y2d,pts_per_class,trial_num),s(1),s(2),[]);
+    if DataSelected == 1
+        load(strcat(RegionSelected,'/RGB/recon2_',num2str(pts_per_class),'.mat'),'HSI')
+    else
+        HSI = reshape(SA_Recon(HSI_ori,Y2d,pts_per_class,trial_num),s(1),s(2),[]);
+    end
+    
+    if choice == 1
+        HSI_rc=reshape(HSI,s(1)*s(2),[]);
+        load(strcat(RegionSelected,'/RGB/recon2_',num2str(pts_per_class),'.mat'),'HSI')
+        HSI_l = reshape([rgb2lab(HSI(:,:,1:3)./255), rgb2lab(HSI(:,:,4:6)./255)],s(1)*s(2),[]);
+        HSI = reshape([HSI_rc, HSI_l],s(1),s(2),[]);
+    end
+    
     save(strcat('recon',num2str(choice),'_',num2str(pts_per_class)), 'HSI')
-
-
     % Find the best parameters of SVM
 
     K_Known = length(unique(Y2d));
