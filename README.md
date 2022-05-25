@@ -1,8 +1,8 @@
 # Change detection of hyperspectral/multispectral images using SVM-STV with lifting.
 
-This code is an implementation of the two-stage method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that denoise the prediction results [2]. The code can be used as a semisupervised per-pixel segmentation with smoothness, which is capable for multispectral and hyperspectral datasets, with applications to change recognition and species classification, etc. 
+This code is an implementation of the SVM-STV method, where the first stage is a \nu-SVM and the second stage is a L1 & L2-norm optimization that perform denoising [3]. The code can be used as a semisupervised per-pixel segmentation/classification algorithm with smoothing that is capable for multispectral/hyperspectral datasets for change recognition and species classification, etc. 
 
-If you are using remote sensing datasets, for example, derived from Google Earth Engine, that may have RGB spectral bands available, the code gives an option to uplifting the data using the Lab color space information. This is verified to be useful in [1,3], especially for RGB data.
+If you are using remote sensing datasets (e.g., derived from Google Earth Engine) that may have RGB spectral bands available, the code gives an option to uplift the data using the Lab color space information. This is verified to be useful in [1,2,4], especially for RGB data.
 
 The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels, see [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
 
@@ -16,10 +16,12 @@ Notes:
 ## References
 If you found the code useful, please cite:
 
-- [1] **Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, S., Chan, R. H., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., Lutz, D. A.**  (2022). Change Detection of Amazonian Alluvial Gold Mining Using Deep Learning and Sentinel-2 Imagery. Remote Sensing, 14(7), 1746. [Link](https://www.mdpi.com/2072-4292/14/7/1746/htm).
+- [1] **Cui, K., Camalan, S., Li, R., Pauca, V. P., Alqahtani, S., Silman, S., Plemmons, R. J., Dethier, E. N., Lutz, D. A., Chan, R. H.**  (2022). Semi-supervised Change Detection of Small Water Bodies Using RGB and Multispectral Images in Peruvian Rainforests. In preparation.
 
-- [2] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. Journal of Mathematical Imaging and Vision, 62(6), 790-807. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
+- [2] **Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, S., Chan, R. H., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., Lutz, D. A.**  (2022). Change Detection of Amazonian Alluvial Gold Mining Using Deep Learning and Sentinel-2 Imagery. Remote Sensing, 14(7), 1746. [Link](https://www.mdpi.com/2072-4292/14/7/1746/htm).
+
+- [3] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. Journal of Mathematical Imaging and Vision, 62(6), 790-807. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
 
 If you find the uplifting step useful, please cite:
 
-- [3] **Cai, X., Chan, R., Nikolova, M., & Zeng, T.** (2017). A three-stage approach for segmenting degraded color images: Smoothing, lifting and thresholding (SLaT). Journal of Scientific Computing, 72(3), 1313-1332. [Link](https://link.springer.com/article/10.1007%2Fs10915-017-0402-2).
+- [4] **Cai, X., Chan, R., Nikolova, M., & Zeng, T.** (2017). A three-stage approach for segmenting degraded color images: Smoothing, lifting and thresholding (SLaT). Journal of Scientific Computing, 72(3), 1313-1332. [Link](https://link.springer.com/article/10.1007%2Fs10915-017-0402-2).
