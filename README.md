@@ -4,10 +4,10 @@ This code is an implementation of the SVM-STV method, where the first stage is a
 
 If you are using remote sensing datasets (e.g., derived from Google Earth Engine) that may have RGB spectral bands available, the code gives an option to uplift the data using the Lab color space information. This is verified to be useful in [1,2,4], especially for RGB data.
 
-The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels, see [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
+The code of the first stage can be used as a classifier that fits the data alone, by training the \nu-SVM with a small set of available labels, see [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
 
 Notes:
-- The code is written in MATLAB, and you need a 64-bit Windows computer to run the code ([LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
+- The code is written in MATLAB, and you need a 64-bit Windows computer to run the code ([LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)).
 - To run a demo, please run the SVMLSMaster.m, and then select Region as 1, Data as RGB data, and Task as binary classification. The data used in this study could be found here: [data](https://zenodo.org/record/6400211#.Yo23DqhByMo).
 - To apply the code on your dataset, you should define a few inputs: HSI (dataset, m * n * p), Y2d (label, m * n), K_Known (No. of classes), trial_num (No. of trials).
 - If you want to pre-train a model and then apply it to testing datasets, please revise the code in 'test' folder, where the TrainModel.m can be revised to pre-train the \nu-SVM in the first stage. Then choose proper denoising parameters (based on your experience during training): 'par', 'par2' in the second stage, and revise TestMaster to run the code on your testing datasets.
