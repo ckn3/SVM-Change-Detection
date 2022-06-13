@@ -15,14 +15,14 @@ Notes:
 - Contact: kangnicui2@gmail.com
 
 ## References
-If you found the code useful, please cite:
+If you found the code/data useful, please cite:
 
 - [1] **Cui, K., Camalan, S., Li, R., Pauca, V. P., Alqahtani, S., Silman, S., Plemmons, R. J., Dethier, E. N., Lutz, D. A., Chan, R. H.**  (2022). Semi-supervised Change Detection of Small Water Bodies Using RGB and Multispectral Images in Peruvian Rainforests. *Proc IEEE Workshop Hyperspectral Image Signal Process Evol Remote Sens*, IEEE.
 
 - [2] **Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, S., Chan, R. H., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., Lutz, D. A.**  (2022). Change Detection of Amazonian Alluvial Gold Mining Using Deep Learning and Sentinel-2 Imagery. *Remote Sensing, 14(7), 1746*, MDPI. [Link](https://www.mdpi.com/2072-4292/14/7/1746/htm).
 
-- [3] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. *Journal of Mathematical Imaging and Vision, 62(6), 790-807*, Springer. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
+If you find the 2-stage classification/uplifting step useful, please cite:
 
-If you find the uplifting step useful, please cite:
+- [3] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. *Journal of Mathematical Imaging and Vision, 62(6), 790-807*, Springer. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
 
 - [4] **Cai, X., Chan, R., Nikolova, M., & Zeng, T.** (2017). A three-stage approach for segmenting degraded color images: Smoothing, lifting and thresholding (SLaT). *Journal of Scientific Computing, 72(3), 1313-1332*, Springer. [Link](https://link.springer.com/article/10.1007%2Fs10915-017-0402-2).
