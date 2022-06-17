@@ -22,4 +22,4 @@ If you find the 2-stage classification/uplifting step useful, please cite:
 
 - [3] **Chan, R. H., Kan, K. K., Nikolova, M., & Plemmons, R. J.** (2020). A two-stage method for spectral–spatial classification of hyperspectral images. *Journal of Mathematical Imaging and Vision, 62(6), 790-807*, Springer. [Link](https://link.springer.com/article/10.1007/s10851-019-00925-9).
 
-- [4] **Cai, X., Chan, R., Nikolova, M., & Zeng, T.** (2017). A three-stage approach for segmenting degraded color images: Smoothing, lifting and thresholding (SLaT). *Journal of Scientific Computing, 72(3), 1313-1332*, Springer. [Link](https://link.springer.com/article/10.1007%2Fs10915-017-0402-2).
+- [4] **Cai, X., Chan, R. H., Nikolova, M., & Zeng, T.** (2017). A three-stage approach for segmenting degraded color images: Smoothing, lifting and thresholding (SLaT). *Journal of Scientific Computing, 72(3), 1313-1332*, Springer. [Link](https://link.springer.com/article/10.1007%2Fs10915-017-0402-2).
