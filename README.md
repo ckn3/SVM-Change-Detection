@@ -14,7 +14,7 @@ Notes:
 ## References
 If you found the code/data useful, please cite:
 
-- [1] **Cui, K., Camalan, S., Li, R., Pauca, V. P., Alqahtani, S., Silman, S., Plemmons, R. J., Dethier, E. N., Lutz, D. A., Chan, R. H.**  (2022). Semi-supervised Change Detection of Small Water Bodies Using RGB and Multispectral Images in Peruvian Rainforests. *Proc IEEE Workshop Hyperspectral Image Signal Process Evol Remote Sens*, IEEE.
+- [1] **Cui, K., Camalan, S., Li, R., Pauca, V. P., Alqahtani, S., Silman, S., Plemmons, R. J., Dethier, E. N., Lutz, D. A., Chan, R. H.**  (2022). Semi-supervised Change Detection of Small Water Bodies Using RGB and Multispectral Images in Peruvian Rainforests. *Proc Workshop Hyperspectral Image Signal Process Evol Remote Sens*, IEEE.
 
 - [2] **Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, S., Chan, R. H., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., Lutz, D. A.**  (2022). Change Detection of Amazonian Alluvial Gold Mining Using Deep Learning and Sentinel-2 Imagery. *Remote Sensing, 14(7), 1746*, MDPI. [Link](https://www.mdpi.com/2072-4292/14/7/1746/htm).
 
